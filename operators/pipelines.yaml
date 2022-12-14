@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscribtion
+metadata:
+  name: openshift-pipelines-operator
+  namespace: hellospa
+specs:
+  channel: latest
+  name: openshift-pipelines-operator-rh
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  installPlanApproval : Automatic
