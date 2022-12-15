@@ -1,11 +1,11 @@
 apiVersion: operators.coreos.com/v1alpha1
-kind: Subscribtion
+kind: Subscription
 metadata:
   name: openshift-gitops-operator
-  namespace: hellospa
-specs:
+  namespace: openshift-operators
+spec:
   channel: latest
   name: openshift-gitops-operator
-  source: redhat-operators
-  sourceNamespace: openshift-marketplace
-  installPlanApproval : Automatic
+  source: redhat-operators 
+  sourceNamespace: openshift-marketplace 
+  installPlanApproval: Automatic
