@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-hellospa
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: hellospa
+    server: https://kubernetes.default.svc
+  project: hellospa
+  source:
+    directory:
+      recurse: true
+    path: app
+    repoURL: https://github.com/MADRAFi/hello-spa-config.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

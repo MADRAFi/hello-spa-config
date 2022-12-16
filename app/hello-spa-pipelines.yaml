@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-spa-pipeline
+  namespace: hellospa
+spec:
+  destination:
+    namespace: hello-spa-pipeline
+    server: https://kubernetes.default.svc
+  project: hellospa
+  source:
+    path: pipeline
+    repoURL: https://github.com/madrafi/hello-spa-config
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  sync:
+    comparedTo:
+      destination:
+        namespace: hello-spa-pipeline
+        server: https://kubernetes.default.svc
+      source:
+        path: pipeline
+        repoURL: https://github.com/madrafi/hello-spa-config
+        targetRevision: main

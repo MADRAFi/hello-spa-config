@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-hellospa-dev
+  namespace: hellospa
+spec:
+  destination:
+    namespace: app-hellospa-dev
+    server: https://kubernetes.default.svc
+  project: hellospa
+  source:
+    path: overlays/dev
+    repoURL: https://github.com/madrafi/hello-spa-config
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  sync:
+    comparedTo:
+      destination:
+        namespace: hello-spa-dev
+        server: https://kubernetes.default.svc
+      source:
+        path: overlays/dev
+        repoURL: https://github.com/madrafi/hello-spa-config
+        targetRevision: main

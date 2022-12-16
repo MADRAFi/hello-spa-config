@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: hellospa
+resources:
+# - hello-spa-pipelines.yaml
+# - hello-spa-dev.yaml
+# - hello-spa-prod.yaml
