@@ -5,5 +5,6 @@ echo 'before running this script'
 echo '####################################################'
 echo .
 oc apply -f cluster/gitops.yaml
+sleep 10
 oc create -f gitops/config.yaml
 oc create -f gitops/app.yaml
